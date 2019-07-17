@@ -1,1 +1,27 @@
-<p>team works!</p>
+<h3>Equipo <small>nombre</small></h3>
+<button type="button" class="hollow button small secondary" [routerLink]="['/teams']" style="margin-bottom: 0">Regresar</button>
+<hr>
+
+<div class="grid-x grid-margin-x">
+  <div class="cell small-12">
+    <form>
+      <label>Nombre
+        <input type="text" placeholder="Nombre del equipo" required>
+      </label>
+      <label>Liga
+        <select>
+          <option value="1">Alemania</option>
+          <option value="2">España</option>
+          <option value="3">Inglaterra</option>
+          <option value="4">Italia</option>
+        </select>
+      </label>
+      <label>Historia
+        <textarea placeholder="Historia del equipo"></textarea>
+      </label>
+      <button type="button" class="button" [routerLink]="['/team','new']">Guardar cambios</button>
+    </form>
+  </div>
+</div>
+
+
