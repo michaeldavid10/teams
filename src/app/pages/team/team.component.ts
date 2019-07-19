@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Team} from '../../interfaces/team';
+import {TeamsService} from '../../services/teams.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-team',
@@ -14,13 +16,19 @@ export class TeamComponent implements OnInit {
     league: '',
   }
 
-  constructor() { }
+  constructor( private _teamsService: TeamsService, private router: Router) { }
 
   ngOnInit() {
   }
 
   save() {
     console.log(this.team);
+
+    this._teamsService.newTeam(this.team)
+      .subscribe(data => {
+        this.router.navigate(['/team', data.name]);
+      },
+      error => console.error(error));
   }
 
 }
