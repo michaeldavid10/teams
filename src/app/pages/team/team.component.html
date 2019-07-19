@@ -4,12 +4,12 @@
 
 <div class="grid-x grid-margin-x">
   <div class="cell small-12">
-    <form>
+    <form (ngSubmit)="save()" #form="ngForm">
       <label>Nombre
-        <input type="text" placeholder="Nombre del equipo" required>
+        <input [(ngModel)]="team.name" name="name" type="text" placeholder="Nombre del equipo" required>
       </label>
       <label>Liga
-        <select>
+        <select [(ngModel)]="team.league" name="league">
           <option value="1">Alemania</option>
           <option value="2">España</option>
           <option value="3">Inglaterra</option>
@@ -17,9 +17,9 @@
         </select>
       </label>
       <label>Historia
-        <textarea placeholder="Historia del equipo"></textarea>
+        <textarea [(ngModel)]="team.history" name="history" placeholder="Historia del equipo"></textarea>
       </label>
-      <button type="button" class="button" [routerLink]="['/team','new']">Guardar cambios</button>
+      <button [disabled]="!form.valid" type="submit" class="button" [routerLink]="['/team','new']">Guardar cambios</button>
     </form>
   </div>
 </div>
