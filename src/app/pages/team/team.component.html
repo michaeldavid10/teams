@@ -3,7 +3,7 @@
 <hr>
 
 <div class="grid-x grid-margin-x">
-  <div class="cell small-12">
+  <div class="cell small-12">{{id}}
     <form (ngSubmit)="save()" #form="ngForm">
       <label>Nombre
         <input [(ngModel)]="team.name" name="name" type="text" placeholder="Nombre del equipo" required>
@@ -19,7 +19,7 @@
       <label>Historia
         <textarea [(ngModel)]="team.history" name="history" placeholder="Historia del equipo"></textarea>
       </label>
-      <button [disabled]="!form.valid" type="submit" class="button" [routerLink]="['/team','new']">Guardar cambios</button>
+      <button [disabled]="!form.valid" type="submit" class="button">Guardar cambios</button>
     </form>
   </div>
 </div>
