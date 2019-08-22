@@ -21,4 +21,15 @@ export class TeamsComponent implements OnInit {
   ngOnInit() {
   }
 
+  deleteTeam( key$:string) {
+    this._teamsService.deleteTeam(key$)
+      .subscribe((data: any[]) => {
+        if (data) {
+          console.error(data);
+        } else {
+          delete this.teams[key$];
+        }
+      });
+  }
+
 }

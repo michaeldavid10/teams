@@ -44,4 +44,12 @@ export class TeamsService {
         return res;
       }));
   }
+
+  deleteTeam(key$:string) {
+    let url = `${this.teamURL}/${key$}.json`;
+    return this.http.delete(url)
+      .pipe(map(res => {
+        return res;
+      }));
+  }
 }

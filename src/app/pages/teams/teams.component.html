@@ -18,7 +18,10 @@
         <td>{{i+1}}</td>
         <td>{{teams[k].name}}</td>
         <td>{{teams[k].league}}</td>
-        <td></td>
+        <td>
+          <button [routerLink]="['/team', k]" type="button" class="hollow button success" style="margin-bottom: 0">Editar</button>
+          <button (click)="deleteTeam(k)" type="button" class="hollow button alert" style="margin-bottom: 0; margin-left: 1em">Eliminar</button>
+        </td>
       </tr>
       </tbody>
     </table>
