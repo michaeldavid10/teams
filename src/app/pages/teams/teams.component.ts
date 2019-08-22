@@ -9,12 +9,14 @@ import {TeamsService} from '../../services/teams.service';
 export class TeamsComponent implements OnInit {
 
   teams: any[] = [];
+  loading: boolean = true;
 
   constructor(private _teamsService: TeamsService) {
     this._teamsService.getTeams()
       .subscribe((data: any[]) => {
           console.log(data);
           this.teams = data;
+          this.loading = false;
         });
   }
 

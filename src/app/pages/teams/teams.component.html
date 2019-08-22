@@ -25,5 +25,11 @@
       </tr>
       </tbody>
     </table>
+    <div *ngIf="(teams | keys).length === 0 && !loading" class="callout secondary">
+      No hay registros
+    </div>
+    <div *ngIf="loading" class="callout warning">
+      Cargando...
+    </div>
   </div>
 </div>
