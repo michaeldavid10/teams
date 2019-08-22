@@ -55,7 +55,7 @@ export class TeamComponent implements OnInit {
   addNew(form:NgForm) {
     this.router.navigate(['/team', 'new']);
     form.reset({
-      league: "2"
+      league: "Alemania"
     });
   }
 

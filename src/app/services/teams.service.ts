@@ -37,4 +37,11 @@ export class TeamsService {
         return res;
       }));
   }
+
+  getTeams() {
+    return this.http.get(this.teamsURL)
+      .pipe(map(res => {
+        return res;
+      }));
+  }
 }
