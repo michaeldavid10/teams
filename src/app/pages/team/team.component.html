@@ -1,9 +1,10 @@
 <h3>Equipo <small>nombre</small></h3>
 <button type="button" class="hollow button small secondary" [routerLink]="['/teams']" style="margin-bottom: 0">Regresar</button>
+<button type="button" class="hollow button small" (click)="addNew(form)" style="margin-bottom: 0; margin-left: 1em">Nuevo equipo</button>
 <hr>
 
 <div class="grid-x grid-margin-x">
-  <div class="cell small-12">{{id}}
+  <div class="cell small-12">
     <form (ngSubmit)="save()" #form="ngForm">
       <label>Nombre
         <input [(ngModel)]="team.name" name="name" type="text" placeholder="Nombre del equipo" required>

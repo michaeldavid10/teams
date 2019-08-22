@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Team} from '../../interfaces/team';
 import {TeamsService} from '../../services/teams.service';
 import {Router, ActivatedRoute} from '@angular/router';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-team',
@@ -10,7 +11,7 @@ import {Router, ActivatedRoute} from '@angular/router';
 })
 export class TeamComponent implements OnInit {
 
-  team: Team = {
+  private team: Team = {
     name: '',
     history: '',
     league: '',
@@ -21,7 +22,13 @@ export class TeamComponent implements OnInit {
 
   constructor( private _teamsService: TeamsService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params
-      .subscribe(params => this.id = params['id']);
+      .subscribe(params => {
+        this.id = params['id'];
+        if (this.id != 'new') {
+          this._teamsService.getTeam(this.id)
+            .subscribe((data: Team) => this.team = data);
+        }
+      });
   }
 
   ngOnInit() {
@@ -43,7 +50,13 @@ export class TeamComponent implements OnInit {
           },
           error => console.error(error));
     }
+  }
 
+  addNew(form:NgForm) {
+    this.router.navigate(['/team', 'new']);
+    form.reset({
+      league: "2"
+    });
   }
 
 }

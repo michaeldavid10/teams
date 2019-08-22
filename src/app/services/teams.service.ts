@@ -29,4 +29,12 @@ export class TeamsService {
         return res;
       }));
   }
+
+  getTeam(key$:string) {
+    let url = `${this.teamURL}/${key$}.json`;
+    return this.http.get(url)
+      .pipe(map(res => {
+        return res;
+      }));
+  }
 }
