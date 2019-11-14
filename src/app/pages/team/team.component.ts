@@ -11,7 +11,7 @@ import {NgForm} from '@angular/forms';
 })
 export class TeamComponent implements OnInit {
 
-  private team: Team = {
+  public team: Team = {
     name: '',
     history: '',
     league: '',
